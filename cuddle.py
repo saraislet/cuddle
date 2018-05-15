@@ -1,3 +1,4 @@
+import re
 import requests
 from flask import Flask, request
 
@@ -5,15 +6,16 @@ app = Flask(__name__)
 curl_response = "Your cuddle partner curls back."
 browser_response = "Cuddles!"
 browser_url_script = "<script>history.replaceState({}, '', '/');</script>"
+regex = "http://([a-zA-Z]{0,20})\.?cuddle\.partners"
 
 @app.route("/")
 def main():
     """Return cuddles."""
-    if request.headers.get("User-Agent").startswith("curl"):
-        print("Request url: {}".format(request.url_root))
-        return curl_response
-    
-    return browser_response
+    sub = re.search(regex, request.url_root)
+    if sub:
+        sub = sub.group(1)
+
+    return handle_sub(sub)
 
 @app.route("/<string:sub>")
 def handle_sub(sub):
@@ -21,7 +23,7 @@ def handle_sub(sub):
     curl = False
 
     if request.headers.get("User-Agent").startswith("curl"):
-        print("Request url: {}".format(request.url_root))
+        #print("Request url: {}".format(request.url_root))
         curl = True
 
     if sub == "www":
