@@ -10,6 +10,7 @@ browser_url_script = "<script>history.replaceState({}, '', '/');</script>"
 def main():
     """Return cuddles."""
     if request.headers.get("User-Agent").startswith("curl"):
+        print("Request url: {}".format(request.url_root))
         return curl_response
     
     return browser_response
@@ -20,6 +21,7 @@ def handle_sub(sub):
     curl = False
 
     if request.headers.get("User-Agent").startswith("curl"):
+        print("Request url: {}".format(request.url_root))
         curl = True
 
     if sub == "www":
