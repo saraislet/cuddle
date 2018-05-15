@@ -4,6 +4,7 @@ from flask import Flask, request
 app = Flask(__name__)
 curl_response = "Your cuddle partner curls back."
 browser_response = "Cuddles!"
+browser_url_script = "<script>history.replaceState({}, '', 'test');</script>"
 
 @app.route("/")
 def main():
@@ -22,7 +23,7 @@ def handle_sub(sub):
         curl = True
 
     if sub == "www":
-        return cuddle(None, curl)
+        return cuddle(None, curl) + browser_url_script
     return cuddle(sub, curl)
 
 def cuddle(sub, curl):
