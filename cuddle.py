@@ -1,5 +1,5 @@
 import requests
-from Flask import Flask
+from flask import Flask
 
 app = Flask(__name__)
 curl_response = "Your cuddle partner curls back."
