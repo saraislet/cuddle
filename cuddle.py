@@ -38,8 +38,8 @@ def cuddle(sub, curl):
         return curl_response
     
     if not curl:
-        return "{} cuddles back.".format(sub)
-    return "{} curls up in your cuddles.".format(sub)
+        return "{} cuddles back.".format(sub.title())
+    return "{} curls up in your cuddles.".format(sub.title())
 
 if __name__ == "__main__":
     app.run()
