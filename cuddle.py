@@ -4,7 +4,7 @@ from flask import Flask, request
 app = Flask(__name__)
 curl_response = "Your cuddle partner curls back."
 browser_response = "Cuddles!"
-browser_url_script = "<script>history.replaceState({}, '', 'test');</script>"
+browser_url_script = "<script>history.replaceState({}, '', '');</script>"
 
 @app.route("/")
 def main():
