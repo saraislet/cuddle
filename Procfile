@@ -1,1 +1,1 @@
-web: gunicorn cuddl:app --error-logfile=- --access-logfile=-
+web: gunicorn cuddle:app --error-logfile=- --access-logfile=-
