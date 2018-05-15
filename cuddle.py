@@ -13,7 +13,7 @@ def main():
     
     return browser_response
 
-@app.route("/<str:sub>")
+@app.route("/<string:sub>")
 def cuddle(sub):
     """Return cuddles from sub."""
     if request.headers.get('User-Agent').startswith("curl"):
