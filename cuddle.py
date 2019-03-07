@@ -6,7 +6,7 @@ app = Flask(__name__)
 curl_response = "Your cuddle partner curls back."
 browser_response = "Cuddles!"
 browser_url_script = "<script>history.replaceState({}, '', '/');</script>"
-regex = "http://([a-zA-Z]{0,20})\.?cuddle\.partners"
+regex = "https?://([a-zA-Z]{0,20})\.?cuddle\.partners"
 
 @app.route("/")
 def main():
