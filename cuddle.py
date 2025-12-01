@@ -3,8 +3,8 @@ import requests
 from flask import Flask, request
 
 app = Flask(__name__)
-curl_response = "Your cuddle partner curls back."
-browser_response = "Cuddles!"
+curl_response = "Your cuddle partner curls back.\n"
+browser_response = "Cuddles!\n"
 browser_url_script = "<script>history.replaceState({}, '', '/');</script>"
 regex = r'https?://([a-zA-Z]{0,20})\.?cuddle\.partners'
 
@@ -38,8 +38,8 @@ def cuddle(sub, curl):
         return curl_response
     
     if not curl:
-        return "{} cuddles back.".format(sub.title())
-    return "{} curls up in your cuddles.".format(sub.title())
+        return "{} cuddles back.\n".format(sub.title())
+    return "{} curls up in your cuddles.\n".format(sub.title())
 
 if __name__ == "__main__":
     app.run()
